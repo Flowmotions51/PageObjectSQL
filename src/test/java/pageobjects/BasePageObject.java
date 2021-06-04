@@ -38,37 +38,27 @@ public class BasePageObject {
     @FindBy(css = "input.supernova-dropdown-option")
     private WebElement exitProfileButton;
 
-
     public void init(){
-
         PageFactory.initElements(driver,this);
         driver.get("https://hh.ru");
     }
 
     public void loginToHh(){
         loginButton.click();
-
         wait.until(ExpectedConditions.visibilityOf(loginBox));
         loginBox.clear();
         loginBox.sendKeys(login);
         passwordBox.sendKeys(password);
         blokoButton.click();
-
-
     }
 
     public void logoutFromHh(){
-
         profileButton.click();
         exitProfileButton.click();
         wait.until(ExpectedConditions.visibilityOf(loginButton));
-
-
     }
 
     public boolean isLoginButtonDisplayed(){
         return loginButton.isDisplayed();
     }
-
-
 }
